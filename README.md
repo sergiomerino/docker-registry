@@ -90,7 +90,7 @@ Para los nuevos usuarios que se quiera añadir el comando a utilizar sería:
     `docker run -d -p 443:443 -v /opt/external/registry-v1/:/etc/nginx/external --link registry-apps:registry --name nginx-registryapps-proxy marvambass/nginx-registry-proxy`
 		
 	Para comprobar la autenticación basta con insertar la URL en un navegador (probablemente sea neceario excluir la url del proxy)
-		https://nombremaquina:443
+		`https://nombremaquina:443`
 	
 	
 ##### Arrancar un UI básico que ofrece visibilidad de los contenedores e imagenes existentes en el host:
@@ -101,7 +101,7 @@ Para los nuevos usuarios que se quiera añadir el comando a utilizar sería:
 		`http://nombremaquina:9000`
 
 
-##### NOTA: A partir de este momento, si no se ejecuta el comando docker login URLalRepo:443 y se autentica con un usuario válido, no será posible descargar las imágenes de dicho repositorio
+##### NOTA: A partir de este momento, si no se ejecuta el comando `docker login URLalRepo:443` y se autentica con un usuario válido, no será posible descargar las imágenes de dicho repositorio
 
 
 ### Registro Docker de imagenes base 
@@ -113,7 +113,7 @@ Para los nuevos usuarios que se quiera añadir el comando a utilizar sería:
     `docker run -d -p 443:443 -v /opt/external/registry-v1/:/etc/nginx/external  --link registry-base:registry --name nginx-registrybase-proxy marvambass/nginx-registry-proxy`
 
 	Para acceder al aplicativo basta con introducir la siguiente URL en el navegador
-		https://nombremaquina:443
+		`https://nombremaquina:443`
 		
 ##### Arrancar el webui que permite visualizar el contenido de los dos repositorios.
 
@@ -136,4 +136,4 @@ Para los nuevos usuarios que se quiera añadir el comando a utilizar sería:
 	Para acceder al aplicativo basta con introducir la siguiente URL en el navegador
 		`http://nombremaquina:9000`
 
-##### NOTA: A partir de este momento, si no se ejecuta el comando docker login URLalRepo:443 y se autentica con un usuario válido, no será posible descargar las imágenes de dicho repositorio.
+##### NOTA: A partir de este momento, si no se ejecuta el comando `docker login URLalRepo:443` y se autentica con un usuario válido, no será posible descargar las imágenes de dicho repositorio.
