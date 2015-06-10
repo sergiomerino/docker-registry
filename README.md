@@ -88,11 +88,20 @@ Para los nuevos usuarios que se quiera añadir el comando a utilizar sería:
 ##### Arrancar el front sobre el registro:
 
     `docker run -d -p 443:443 -v /opt/external/registry-v1/:/etc/nginx/external --link registry-apps:registry --name nginx-registryapps-proxy marvambass/nginx-registry-proxy`
-
+		
+	Para comprobar la autenticación basta con insertar la URL en un navegador (probablemente sea neceario excluir la url del proxy)
+		https://nombremaquina:443
+	
+	
 ##### Arrancar un UI básico que ofrece visibilidad de los contenedores e imagenes existentes en el host:
 
     `docker run -d -p 9000:9000 --name monitorBaseContainers --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui`
 
+	Para acceder al aplicativo basta con introducir la siguiente URL en el navegador (probablemente sea neceario excluir la url del proxy)
+		`http://nombremaquina:9000`
+
+
+##### NOTA: A partir de este momento, si no se ejecuta el comando docker login URLalRepo:443 y se autentica con un usuario válido, no será posible descargar las imágenes de dicho repositorio
 
 
 ### Registro Docker de imagenes base 
@@ -103,6 +112,9 @@ Para los nuevos usuarios que se quiera añadir el comando a utilizar sería:
 ##### Arrancar el front sobre el registro:
     `docker run -d -p 443:443 -v /opt/external/registry-v1/:/etc/nginx/external  --link registry-base:registry --name nginx-registrybase-proxy marvambass/nginx-registry-proxy`
 
+	Para acceder al aplicativo basta con introducir la siguiente URL en el navegador
+		https://nombremaquina:443
+		
 ##### Arrancar el webui que permite visualizar el contenido de los dos repositorios.
 
 ##### Antes de lanzar el contenedor es preciso crear el keystore que albergue los dos certificados
@@ -115,5 +127,13 @@ Para los nuevos usuarios que se quiera añadir el comando a utilizar sería:
          -e 'JAVA_OPTS=-Djavax.net.ssl.trustStore=/tmp/truststore -Djavax.net.ssl.trustStorePassword=password' \
          -d -p 8080:8080 atcol/docker-registry-ui`
 
+	Para acceder al aplicativo basta con introducir la siguiente URL en el navegador
+		`http://nombremaquina:8080`
+	
 ##### Arrancar un UI básico que ofrece visibilidad de los contenedores e imagenes existentes en el host:
     `docker run -d -p 9000:9000 --name monitorBaseContainers --privileged -v /var/run/docker.sock:/var/run/docker.sock dockerui/dockerui`
+
+	Para acceder al aplicativo basta con introducir la siguiente URL en el navegador
+		`http://nombremaquina:9000`
+
+##### NOTA: A partir de este momento, si no se ejecuta el comando docker login URLalRepo:443 y se autentica con un usuario válido, no será posible descargar las imágenes de dicho repositorio.
