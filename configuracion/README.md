@@ -1,1 +1,2 @@
-Templates de algunos ficheros de configuraci髇 utilizados
+Templates de algunos ficheros de configuraci贸n utilizados para la instanciaci贸n del registro Docker
+  * docker-registry.conf, es el fichero de configuraci贸n del proxy reverso encargado de la autenticaci贸n de usuarios
