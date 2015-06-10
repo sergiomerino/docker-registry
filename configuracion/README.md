@@ -1,0 +1,1 @@
+Templates de algunos ficheros de configuración utilizados
